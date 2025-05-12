@@ -3,6 +3,6 @@ import App from './App';
 
 test('renders learn react link', () => {
   render(<App />);
-  const headingElement = screen.getByText(/Hello World! CI\/CD Demo/i);
+  const headingElement = screen.getByText(/Dụ mẹ CI/CID / i);
   expect(headingElement).toBeInTheDocument();
 });
