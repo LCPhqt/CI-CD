@@ -4,5 +4,5 @@ import App from './App';
 test('renders learn react link', () => {
   render(<App />);
   const headingElement = screen.getByText(/Hello World! CI\/CD Demo/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(headingElement).toBeInTheDocument();
 });
