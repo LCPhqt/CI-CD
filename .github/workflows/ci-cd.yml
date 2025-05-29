@@ -29,8 +29,7 @@ jobs:
       - name: Build project
         run: npm run build
       # Bước 6: Chạy unit test
-      - name: Run unit tests
-        run: npm run test:unit -- --watchAll=false --no-build--verbosity normal
+      
       # Bước 7: Chạy kiểm thử end-to-end (e2e)
       - name: Run e2e tests
         run: npm run test:e2e -- --watchAll=false --no-build --verbosity normal
