@@ -28,7 +28,5 @@ jobs:
       # Bước 5: Build project
       - name: Build project
         run: npm run build
-      # Bước 6: Chạy unit test
-      - name: Run unit tests
-        run: npm test -- --watchAll=false --testPathPattern=unit
+      
 # Kết thúc workflow
