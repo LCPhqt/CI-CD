@@ -1,6 +1,8 @@
+# Pipeline CI/CD cho dự án Node.js
 name: CI/CD Pipeline
 
 on:
+  # Kích hoạt workflow khi có push hoặc pull request lên nhánh main
   push:
     branches: [ "main" ]
   pull_request:
@@ -10,14 +12,26 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
     steps:
+      # Bước 1: Lấy mã nguồn từ repository
       - uses: actions/checkout@v4
+      # Bước 2: Thiết lập môi trường Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
+      # Bước 3: Cài đặt các thư viện phụ thuộc
       - name: Install dependencies
         run: npm install
+      # Bước 4: Chạy tất cả các bài test
       - name: Run tests
         run: npm test -- --watchAll=false
+      # Bước 5: Build project
       - name: Build project
         run: npm run build
+      # Bước 6: Chạy unit test
+      - name: Run unit tests
+        run: npm run test:unit -- --watchAll=false --no-build--verbosity normal
+      # Bước 7: Chạy kiểm thử end-to-end (e2e)
+      - name: Run e2e tests
+        run: npm run test:e2e -- --watchAll=false --no-build --verbosity normal
+# Kết thúc workflow
